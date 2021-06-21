@@ -1,5 +1,3 @@
-/* I have two document here in this file, you can create multiple documents as you want, just separated them using --- */
-/* the first document defines the kubernates server, the server will allow us to access multi nodes on the single port */
 kind: Service
 apiVersion: v1
 metadata:
@@ -14,8 +12,7 @@ spec:
     nodePort: 8080
 
 ---
-/* defines the deployment, tells the kubernates how to deploy the application */
-/* we want two relicas(ports) that the training schedule app is running and we also specify the what contiainer to deploy. */
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
