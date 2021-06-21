@@ -45,7 +45,14 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                //implement Kubernetes deployment here
+                kubernetesDeploy(
+                    //kube config credentials we created in jenkins and use to authenticate with kubernates master
+                    kubeconfigId: 'kubeconfig',
+                    //yml template file apply to the kuberates cluster
+                    configs: 'train-schedule-kube.yml',
+                    //tell the plugins to replace the $ sign in the yml file with the actual value
+                    enableConfigSubstitution: true
+                )
             }
         }
     }
